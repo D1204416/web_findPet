@@ -93,10 +93,6 @@ function submitPetInfo() {
     if (!memberPhone) errorMessages.push("請填寫會員電話");
     if (!lostDate) errorMessages.push("請填寫走失日期");
 
-    // 簡單的電話號碼格式驗證
-    // if (memberPhone && !/^\d{8,}$/.test(memberPhone)) {
-    //     errorMessages.push("請填寫有效的電話號碼（至少8位數字）");
-    // }
 
     // 日期格式驗證
     const currentDate = new Date();
@@ -128,20 +124,6 @@ function submitPetInfo() {
     }
 }
 
-// function savePetData(name, breed, owner, phone, lostdate, reward, photo) {
-//     const petData = { name, breed, owner, phone, lostdate, reward, photo };
-//     console.log('準備保存的資料:', petData);
-//
-//     try {
-//         localStorage.setItem("petInfo", JSON.stringify(petData));
-//         console.log('資料已成功保存到 localStorage');
-//         alert('寵物資訊已成功提交！');
-//         window.location.href = "index.html";
-//     } catch (error) {
-//         console.error('保存資料時發生錯誤:', error);
-//         alert('提交資料時發生錯誤，請稍後再試。');
-//     }
-// }
 
 function savePetData(name, breed, owner, phone, lostdate, reward, photo) {
     const petData = { name, breed, owner, phone, lostdate, reward, photo };
@@ -167,5 +149,3 @@ function savePetData(name, breed, owner, phone, lostdate, reward, photo) {
     }
 }
 
-//  清空localstorage資料
-// localStorage.clear();  

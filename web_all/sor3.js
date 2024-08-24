@@ -90,7 +90,7 @@ function show(filteredAnimals) {
     let row = "<div class=\"row\">";
     let str = "";
 
-    for (let i = 0; i < filteredAnimals.length && i < 16; i++) {
+    for (let i = 0; i < filteredAnimals.length && i < 12; i++) {
         const animal = filteredAnimals[i].name;
         const img = filteredAnimals[i].img;
         const type = filteredAnimals[i].type;
@@ -108,7 +108,7 @@ function show(filteredAnimals) {
         if (img.startsWith('data:image/')) {
             imgTag = `<img class="card-img" src="${img}" alt="Card image">`;  // Base64 編碼圖片
         } else {
-            imgTag = `<img class="card-img" src="/img/${img}" alt="Card image">`;  // 本地端圖片
+            imgTag = `<img class="card-img" src="./img/${img}" alt="Card image">`;  // 本地端圖片
         }
 
         const typeDiv = `<div class="card-text">Type: ${type}</div>`;
@@ -182,39 +182,3 @@ function dateSort(order) {
     // 更新要顯示的資料
     show(filteredAnimals);
 }
-
-
-
-
-
-// 取出localstorage陣列資料, 渲染到html
-// document.addEventListener("DOMContentLoaded", function () {
-//     const petInfoArray = JSON.parse(localStorage.getItem("petInfoArray"));
-//     if (petInfoArray && petInfoArray.length > 0) {
-//         const mDiv = document.getElementById("m");
-//
-//         let rowDiv = "<div class=\"row\">";
-//         let content = '';
-//
-//         petInfoArray.forEach(petInfo => {
-//             content += `
-//                 <div class="col-sm-6 col-md-4 col-lg-3 card">
-//                     <div class="card-body d-flex flex-column text-center">
-//                         <h5 class="card-title">${petInfo.name}</h5>
-//                         ${petInfo.photo ? `<img src="${petInfo.photo}" class="card-img" alt="${petInfo.name}">` : ''}
-//                         <div class="card-text">Type: ${petInfo.breed}</div>
-//                         <div class="card-text">Date: ${petInfo.lostdate}</div>
-//                         <div class="card-text">Reward: ${petInfo.reward}</div>
-//                         <div class="card-text">Owner: ${petInfo.owner}</div>
-//                         <div class="card-text">Contact: ${petInfo.phone}</div>
-//                     </div>
-//                 </div>`;
-//         });
-//
-//         mDiv.innerHTML = rowDiv + content + '</div>';
-//     }
-// });
-
-
-//  清空localstorage資料
-// localStorage.clear();  

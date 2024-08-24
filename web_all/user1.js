@@ -54,14 +54,14 @@ document.getElementById("regPassword").addEventListener("input", function() {
     }
 });
 
-// 注册功能
+// 註冊功能
 function registerUser() {
     let name = document.getElementById("regName").value;
     let phone = document.getElementById("regPhone").value;
     let email = document.getElementById("regEmail").value;
     let password = document.getElementById("regPassword").value;
 
-    // 在提交时再进行一次验证
+    // 在提交時再進行一次驗證
     if (name.length < 2) {
         alert("姓名長度必須至少為2個字符。");
         return;
@@ -84,12 +84,12 @@ function registerUser() {
         return;
     }
 
-    // 将注册资料保存到Local Storage
+    // 將註冊資料保存到Local Storage
     localStorage.setItem("user", JSON.stringify({ name, phone, email, password }));
     alert("註冊成功！");
-    document.getElementById("registerForm").reset(); // 清空表单
+    document.getElementById("registerForm").reset(); // 清空表單
     let registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
-    registerModal.hide(); // 隐藏注册模态框
+    registerModal.hide(); // 隐藏註冊按鈕
 }
 
 
@@ -146,14 +146,12 @@ function loginUser() {
 
         alert("登入成功！歡迎回來，" + storedUser.name + "!");
         let loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
-        loginModal.hide(); // 隱藏登入框
+        loginModal.hide(); // 隱藏登入入口
         updateNavBar();
     } else {
         alert("帳號或密碼錯誤，請重試！");
     }
 }
-
-
 
 
 // 登出功能
@@ -192,6 +190,19 @@ function updateNavBar() {
 document.addEventListener('DOMContentLoaded', function () {
     updateNavBar();
 });
+
+// 切換到註冊模態框
+function switchToRegisterModal() {
+    // 隱藏登入模態框
+    let loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+    if (loginModal) { // 確認登入模態框實例存在
+        loginModal.hide();
+    }
+
+    // 顯示註冊模態框
+    let registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+    registerModal.show();
+}
 
 
 // 清除localstorage, 沒事不要開

@@ -68,7 +68,7 @@
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="Index.html" class="nav-link px-2 link-secondary">首頁</a></li>
-                <li><a href="ImageRecognition.html" class="nav-link px-2 link-dark">影像辨識</a></li> 
+                <li><a href="ImageRecognition.html" class="nav-link px-2 link-dark">影像辨識</a></li>
                 <li id="uploadLink"><a href="upload.html" class="nav-link px-2 link-dark pri">走失刊登</a></li>
             </ul>
 
@@ -77,16 +77,19 @@
 
             <div class="col-md-3 text-end">
                 <div id="userDropdown" class="dropdown" style="display: none;">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <span id="userNameDisplay"></span>，歡迎回來！
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="#" onclick="logoutUser()">登出</a></li>
                     </ul>
                 </div>
-            
-                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal" id="loginButton">登入</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal" id="registerButton">註冊</button>
+
+                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                    data-bs-target="#loginModal" id="loginButton">我要刊登</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal"
+                    id="registerButton">註冊</button>
             </div>
         </header>
     </div>
@@ -125,7 +128,7 @@
 
                             <div class="a-flex">
                                 <a href="" style="color: rgb(57, 90, 255);">忘記密碼？</a>
-                                <a href="" style="color: rgb(57, 90, 255);">還沒註冊？</a>
+                                <a href="javascript:void(0);" style="color: rgb(57, 90, 255);" onclick="switchToRegisterModal()">還沒註冊？</a>
                             </div>
 
                         </div>
@@ -177,7 +180,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="allgone()">重新填寫</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="allgone()">重新填寫</button>
                     <button type="button" class="btn btn-primary" onclick="registerUser()">送出</button>
                 </div>
             </div>
@@ -188,15 +192,19 @@
     <div class="container mt-3">
         <div style="width: 300px;">
             <div class="input-group">
-                <span class="input-group-text" style="border: 1px solid #007bff; background-color: #007bff;color: aliceblue;"><i class="bi bi-filter"></i></span>
-                <select class="form-select" style="border: 1px solid #007bff;color: #007bff;" onchange="typeSort(this.value)">
+                <span class="input-group-text"
+                    style="border: 1px solid #007bff; background-color: #007bff;color: aliceblue;"><i
+                        class="bi bi-filter"></i></span>
+                <select class="form-select" style="border: 1px solid #007bff;color: #007bff;"
+                    onchange="typeSort(this.value)">
                     <option value="name">所有品種</option>
                     <option value="dog">Dog</option>
                     <option value="cat">Cat</option>
                     <option value="other">Other</option>
                 </select>
                 <button class="btn btn-outline-primary" onclick="dateSort('gold')">走失時間</button>
-                <button class="btn btn-outline-primary" style="border-left: white;" onclick="rewardSort('total')">賞金</button>
+                <button class="btn btn-outline-primary" style="border-left: white;"
+                    onclick="rewardSort('total')">賞金</button>
             </div>
 
         </div>
