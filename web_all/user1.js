@@ -1,6 +1,6 @@
 // 儲存註冊資訊到Local Storage
 // 驗證姓名長度
-document.getElementById("regName").addEventListener("input", function() {
+document.getElementById("regName").addEventListener("input", function () {
     let name = this.value;
     let nameError = document.getElementById("nameError");
 
@@ -12,7 +12,7 @@ document.getElementById("regName").addEventListener("input", function() {
 });
 
 // 驗證電話
-document.getElementById("regPhone").addEventListener("input", function() {
+document.getElementById("regPhone").addEventListener("input", function () {
     let phone = this.value;
     let phoneError = document.getElementById("phoneError");
 
@@ -27,7 +27,7 @@ document.getElementById("regPhone").addEventListener("input", function() {
 });
 
 // 驗證email
-document.getElementById("regEmail").addEventListener("input", function() {
+document.getElementById("regEmail").addEventListener("input", function () {
     let email = this.value;
     let emailError = document.getElementById("register_emailError");
 
@@ -42,7 +42,7 @@ document.getElementById("regEmail").addEventListener("input", function() {
 });
 
 // 驗證密碼長度
-document.getElementById("regPassword").addEventListener("input", function() {
+document.getElementById("regPassword").addEventListener("input", function () {
     let password = this.value;
     let passwordError = document.getElementById("register_passwordError");
 
@@ -95,7 +95,7 @@ function registerUser() {
 
 // 登入功能
 // 驗證email格式
-document.getElementById("floatingInput").addEventListener("input", function() {
+document.getElementById("floatingInput").addEventListener("input", function () {
     let email = this.value;
     let emailError = document.getElementById("emailError");
 
@@ -109,7 +109,7 @@ document.getElementById("floatingInput").addEventListener("input", function() {
 });
 
 // 驗證密碼長度
-document.getElementById("floatingPassword").addEventListener("input", function() {
+document.getElementById("floatingPassword").addEventListener("input", function () {
     let password = this.value;
     let passwordError = document.getElementById("passwordError");
 
@@ -203,6 +203,55 @@ function switchToRegisterModal() {
     let registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
     registerModal.show();
 }
+
+
+// 打開身份核對模態框
+function openIdentityVerificationModal() {
+    // 隱藏登入模態框
+    let loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+    if (loginModal) {
+        loginModal.hide();
+    }
+
+    // 顯示身份核對模態框
+    let identityVerificationModal = new bootstrap.Modal(document.getElementById('identityVerificationModal'));
+    identityVerificationModal.show();
+}
+
+// 驗證身份（檢查是否存在此電子郵件）
+function verifyIdentity() {
+    let email = document.getElementById("verificationEmail").value;
+    let verificationEmailError = document.getElementById("verificationEmailError");
+
+    // 檢查電子郵件格式是否正確
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        verificationEmailError.textContent = "請輸入有效的電子郵件地址。";
+        return;
+    } else {
+        verificationEmailError.textContent = ""; // 清除錯誤訊息
+    }
+
+    // 從 Local Storage 中獲取用戶資料
+    let storedUser = JSON.parse(localStorage.getItem("user"));
+
+    // 判斷是否有相同的email註冊過
+    if (storedUser && storedUser.email === email) {
+        // 模擬寄送密碼至用戶電子郵件
+        alert("密碼已寄送至您的電子郵件！");
+
+        // 隱藏身份核對模態框
+        let identityVerificationModal = bootstrap.Modal.getInstance(document.getElementById('identityVerificationModal'));
+        identityVerificationModal.hide();
+    } else {
+        alert("尚未註冊!");
+
+        // 隱藏身份核對模態框
+        let identityVerificationModal = bootstrap.Modal.getInstance(document.getElementById('identityVerificationModal'));
+        identityVerificationModal.hide();
+    }
+}
+
 
 
 // 清除localstorage, 沒事不要開

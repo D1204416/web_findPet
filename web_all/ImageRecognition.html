@@ -55,7 +55,7 @@
         <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
-        
+
     </div>
 
     <!-- NavBar  -->
@@ -130,8 +130,9 @@
                             </div>
 
                             <div class="a-flex">
-                                <a href="" style="color: rgb(57, 90, 255);">忘記密碼？</a>
-                                <a href="javascript:void(0);" style="color: rgb(57, 90, 255);" onclick="switchToRegisterModal()">還沒註冊？</a>
+                                <a href="javascript:void(0);" style="color: rgb(57, 90, 255);" onclick="openIdentityVerificationModal()">忘記密碼？</a>
+                                <a href="javascript:void(0);" style="color: rgb(57, 90, 255);"
+                                    onclick="switchToRegisterModal()">還沒註冊？</a>
                             </div>
 
                         </div>
@@ -183,8 +184,37 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="allgone()">重新填寫</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="allgone()">重新填寫</button>
                     <button type="button" class="btn btn-primary" onclick="registerUser()">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Identity Verification Modal -->
+    <div class="modal fade" id="identityVerificationModal" tabindex="-1"
+        aria-labelledby="identityVerificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="identityVerificationModalLabel">註冊確認</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="identityVerificationForm" class="container">
+                        <div class="form-floating mt-3">
+                            <input type="email" class="form-control" id="verificationEmail"
+                                placeholder="name@example.com">
+                            <label for="verificationEmail">
+                                <p>請輸入您的電子郵件地址：</p>
+                            </label>
+                            <small id="verificationEmailError" class="text-danger"></small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="verifyIdentity()">送出</button>
                 </div>
             </div>
         </div>
@@ -195,23 +225,26 @@
         <h1 style="text-align: center;">AI 寵物識別</h1>
         <div class="d-flex justify-content-center">
             <div class="m-5">
-                    <div id="webcam-container">上傳圖片或開起相機</div>
-                    <div id="label-container"></div>
+                <div id="webcam-container">上傳圖片或開起相機</div>
+                <div id="label-container"></div>
 
-                    <div style="width: 300px;">
-                        <div class="input-group mb-3">
-                            <label class="input-group-text" for="inputGroupFile01"><i class="bi bi-image"></i></label>
-                            <input class="form-control" id="inputGroupFile01" type="file" accept="image/*" onchange="initImage(this)" />
-                        </div>
+                <div style="width: 300px;">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupFile01"><i class="bi bi-image"></i></label>
+                        <input class="form-control" id="inputGroupFile01" type="file" accept="image/*"
+                            onchange="initImage(this)" />
                     </div>
+                </div>
 
-                    <div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text"><i class="bi bi-camera-fill"></i></span>
-                            <button class="btn btn-light" style="border: 1px solid #dee2e6;" type="button" onclick="initWebcam()">開啟相機</button>
-                            <button class="btn btn-light" style="border: 1px solid #dee2e6;" type="button" onclick="stop()">結束相機</button>
-                        </div>
+                <div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-camera-fill"></i></span>
+                        <button class="btn btn-light" style="border: 1px solid #dee2e6;" type="button"
+                            onclick="initWebcam()">開啟相機</button>
+                        <button class="btn btn-light" style="border: 1px solid #dee2e6;" type="button"
+                            onclick="stop()">結束相機</button>
                     </div>
+                </div>
 
             </div>
 
@@ -223,7 +256,7 @@
                 </div>
 
             </div>
-        
+
         </div>
     </div>
 

@@ -127,8 +127,9 @@
                             </div>
 
                             <div class="a-flex">
-                                <a href="" style="color: rgb(57, 90, 255);">忘記密碼？</a>
-                                <a href="javascript:void(0);" style="color: rgb(57, 90, 255);" onclick="switchToRegisterModal()">還沒註冊？</a>
+                                <a href="javascript:void(0);" style="color: rgb(57, 90, 255);" onclick="openIdentityVerificationModal()">忘記密碼？</a>
+                                <a href="javascript:void(0);" style="color: rgb(57, 90, 255);"
+                                    onclick="switchToRegisterModal()">還沒註冊？</a>
                             </div>
 
                         </div>
@@ -183,6 +184,34 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                         onclick="allgone()">重新填寫</button>
                     <button type="button" class="btn btn-primary" onclick="registerUser()">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Identity Verification Modal -->
+    <div class="modal fade" id="identityVerificationModal" tabindex="-1"
+        aria-labelledby="identityVerificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="identityVerificationModalLabel">註冊確認</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="identityVerificationForm" class="container">
+                        <div class="form-floating mt-3">
+                            <input type="email" class="form-control" id="verificationEmail"
+                                placeholder="name@example.com">
+                            <label for="verificationEmail">
+                                <p>請輸入您的電子郵件地址：</p>
+                            </label>
+                            <small id="verificationEmailError" class="text-danger"></small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="verifyIdentity()">送出</button>
                 </div>
             </div>
         </div>
