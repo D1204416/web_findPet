@@ -148,6 +148,9 @@ function loginUser() {
         let loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
         loginModal.hide(); // 隱藏登入入口
         updateNavBar();
+
+        // 跳轉到index.html
+        window.location.href = "upload.html";
     } else {
         alert("帳號或密碼錯誤，請重試！");
     }
