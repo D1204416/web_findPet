@@ -2,24 +2,28 @@ let img_url = {
     "旺財": "dog.jpg",
     "天網灰灰": "graycat.png",
     "白冰冰": "whitedog.png",
+    "凱旋門":"bird.png",
+    "卡皮巴拉":"Capybara.jpg",
     "黃珠格格": "orangecat.png",
     "金魚": "goldfish.png",
-    "五阿哥": "bird.png",
+    "五阿哥": "fivebird.jpg",
     "小花": "flowercat.png",
-    "跳跳": "rabbit.png",
+    "跳跳虎": "rabbit.png",
 
 };
 
 
 let animals = [
-    "Dog 旺財 2024/07/06 reward:9000 旺情水 0910-000111",
-    "Cat 天網灰灰 2024/05/06 reward:9000 天天想你 0910-111222",
-    "Dog 白冰冰 2024/08/05 reward:8000 白冰冰爸 0910-222333",
-    "Bird 黃珠格格 2024/03/12 reward:5000 黃阿瑪 0910-333444",
-    "Fish 金魚 2024/04/22 reward:3000 金勾貝兒 0910-444555",
-    "bird 五阿哥 2024/09/01 reward:8500 五月花 0910-555666",
-    "Cat 小花 2024/02/14 reward:7500 小花爸 0910-666777",
-    "Rabbit 跳跳 2024/01/30 reward:6000 跳跳虎 0910-777888",
+    "Dog 旺財 2024-07-06 reward:9000 旺情水 0910-000111",
+    "Cat 天網灰灰 2024-05-06 reward:9000 天天想你 0910-111222",
+    "capybara 卡皮巴拉 2024-02-06 reward:99999 庫拉皮卡 0910-118222",
+    "bird 凱旋門 2024-08-25 reward:8500 聖女貞德 0910-557866",
+    "Dog 白冰冰 2024-08-05 reward:8000 白雲 0910-222333",
+    "Cat 黃珠格格 2024-03-12 reward:5000 黃阿瑪 0910-333444",
+    "Fish 金魚 2024-04-22 reward:3000 金正恩 0910-444555",
+    "bird 五阿哥 2024-08-20 reward:8500 皇額娘 0910-555666",
+    "Cat 小花 2024-02-14 reward:7500 花媽 0910-666777",
+    "Rabbit 跳跳虎 2024-01-30 reward:6000 小熊維尼 0910-777888",
 
 ];
 
@@ -84,8 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// 第三題
-// 3-1. 由JS渲染畫面到html
+//由JS渲染畫面到html
 function show(filteredAnimals) {
     let row = "<div class=\"row\">";
     let str = "";
@@ -101,7 +104,7 @@ function show(filteredAnimals) {
 
         const card = `<div class="col-sm-6 col-md-4 col-lg-3 card">`;
         const cardBodyDiv = `<div class="card-body d-flex flex-column text-center">`;
-        const cardTitle = `<h5 class="card-title">${animal}</h5>`;
+        const cardTitle = `<h5 class="card-title" style="font-weight: bold;">${animal}</h5>`;
 
         // 判斷是否為 Base64 編碼圖片
         let imgTag;
